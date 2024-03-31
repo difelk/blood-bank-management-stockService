@@ -2,6 +2,7 @@ package com.bcn.stockService.controller;
 
 
 import com.bcn.stockService.data.Donor;
+import com.bcn.stockService.data.StockItem;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,8 +19,8 @@ public class StockController {
     }
 
     @PutMapping(path = "/stocks/{id}")
-    public String updateStock(@PathVariable String id, @RequestBody Donor donor) {
-        return "received new donation from " + donor.getFirstName() + " "  + donor.getLastName();
+    public String updateStock(@PathVariable String id, @RequestBody StockItem stockItem) {
+        return "received new donation from " + stockItem.getDonorNic() + " blood type of "  + stockItem.getBloodType();
     }
 }
 

@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 import java.sql.Date;
 
 @Entity
-@Table(name = "stockItems")
+@Table(name = "stock_item")
 public class StockItems {
 
     @Id
@@ -18,7 +18,10 @@ public class StockItems {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "stock_date")
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "date")
     private Date stockDate;
 
     @Column(name = "Aplus")
@@ -55,6 +58,14 @@ public class StockItems {
 
     public Date getStockDate() {
         return stockDate;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public void setStockDate(Date stockDate) {

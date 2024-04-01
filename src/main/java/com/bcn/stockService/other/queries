@@ -22,3 +22,16 @@ CREATE TABLE stock_item (
     Oplus INT NOT NULL,
     Ominus INT NOT NULL
 );
+
+INSERT INTO stock (date, quantity, category)
+VALUES ('2024-04-01', 100, 'example_category');
+
+INSERT INTO stock_item (date, category, Aplus, Aminus, Bplus, Bminus, ABplus, ABminus, Oplus, Ominus)
+VALUES
+('2024-04-01', 'Regular', 10, 20, 30, 40, 5, 8, 15, 25),
+('2024-04-02', 'Regular', 15, 25, 35, 45, 6, 9, 20, 30),
+('2024-04-03', 'Regular', 20, 30, 40, 50, 7, 10, 25, 35);
+
+
+SELECT * FROM stock;
+SELECT * FROM stock_item

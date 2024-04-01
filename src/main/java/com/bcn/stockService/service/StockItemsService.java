@@ -23,7 +23,7 @@ public class StockItemsService {
         }
     }
 
-    public StockItems getStockItemsByDate(Date stockDate) {
+    public List<StockItems> getStockItemsByDate(Date stockDate) {
         try {
             return stockItemRepository.getStockItemsByDate(stockDate);
         } catch (Exception e) {

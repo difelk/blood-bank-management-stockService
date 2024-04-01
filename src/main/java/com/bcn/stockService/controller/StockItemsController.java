@@ -20,7 +20,7 @@ public class StockItemsController {
     }
 
     @GetMapping(path = "/stock-items/{stockDate}")
-    public StockItems getStockItemsByDate(@PathVariable Date stockDate) {
+    public List<StockItems> getStockItemsByDate(@PathVariable Date stockDate) {
         return stockItemsService.getStockItemsByDate(stockDate);
     }
 

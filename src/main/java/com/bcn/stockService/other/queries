@@ -1,0 +1,24 @@
+CREATE DATABASE bcnstock
+
+USE bcnstock
+
+CREATE TABLE stock (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    quantity INT NOT NULL,
+    category VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE stock_item (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    Aplus INT NOT NULL,
+    Aminus INT NOT NULL,
+    Bplus INT NOT NULL,
+    Bminus INT NOT NULL,
+    ABplus INT NOT NULL,
+    ABminus INT NOT NULL,
+    Oplus INT NOT NULL,
+    Ominus INT NOT NULL
+);

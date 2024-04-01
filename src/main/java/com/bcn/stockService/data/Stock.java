@@ -1,9 +1,6 @@
 package com.bcn.stockService.data;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.sql.Date;
 
@@ -12,12 +9,18 @@ import java.sql.Date;
 public class Stock {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    int id;
+    private int id;
 
-    @Column(name = "stock_date")
-    Date stockDate;
+    @Column(name = "date")
+    private Date stockDate;
 
+    @Column(name = "quantity")
+    private float quantity;
+
+    @Column(name = "category")
+    private String category;
 
     public int getId() {
         return id;
@@ -35,6 +38,14 @@ public class Stock {
         this.stockDate = stockDate;
     }
 
+    public float getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(float quantity) {
+        this.quantity = quantity;
+    }
+
     public String getCategory() {
         return category;
     }
@@ -42,30 +53,4 @@ public class Stock {
     public void setCategory(String category) {
         this.category = category;
     }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public Date getExpirationDate() {
-        return expirationDate;
-    }
-
-    public void setExpirationDate(Date expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    @Column(name = "stock_category")
-    String category;
-
-    @Column(name = "stock_quantity")
-    int quantity;
-
-    @Column(name = "stock_expiration_date")
-    Date expirationDate;
-
 }

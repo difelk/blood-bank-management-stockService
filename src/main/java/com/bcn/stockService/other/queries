@@ -1,0 +1,37 @@
+CREATE DATABASE bcnstock
+
+USE bcnstock
+
+CREATE TABLE stock (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    quantity INT NOT NULL,
+    category VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE stock_item (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    Aplus INT NOT NULL,
+    Aminus INT NOT NULL,
+    Bplus INT NOT NULL,
+    Bminus INT NOT NULL,
+    ABplus INT NOT NULL,
+    ABminus INT NOT NULL,
+    Oplus INT NOT NULL,
+    Ominus INT NOT NULL
+);
+
+INSERT INTO stock (date, quantity, category)
+VALUES ('2024-04-01', 100, 'example_category');
+
+INSERT INTO stock_item (date, category, Aplus, Aminus, Bplus, Bminus, ABplus, ABminus, Oplus, Ominus)
+VALUES
+('2024-04-01', 'Regular', 10, 20, 30, 40, 5, 8, 15, 25),
+('2024-04-02', 'Regular', 15, 25, 35, 45, 6, 9, 20, 30),
+('2024-04-03', 'Regular', 20, 30, 40, 50, 7, 10, 25, 35);
+
+
+SELECT * FROM stock;
+SELECT * FROM stock_item

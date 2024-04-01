@@ -10,22 +10,49 @@ import jakarta.persistence.Table;
 import java.sql.Date;
 
 @Entity
-@Table(name = "stockItems")
+@Table(name = "stock_item")
 public class StockItems {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private int id;
 
-    @Column(name = "stock_date")
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "date")
     private Date stockDate;
 
-    public Integer getId() {
+    @Column(name = "Aplus")
+    private float aPositive;
+
+    @Column(name = "Aminus")
+    private float aNegative;
+
+    @Column(name = "Bplus")
+    private float bPositive;
+
+    @Column(name = "Bminus")
+    private float bNegative;
+
+    @Column(name = "ABplus")
+    private float abPositive;
+
+    @Column(name = "ABminus")
+    private float abNegative;
+
+    @Column(name = "Oplus")
+    private float oPositive;
+
+    @Column(name = "Ominus")
+    private float oNegative;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -33,97 +60,79 @@ public class StockItems {
         return stockDate;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public void setStockDate(Date stockDate) {
         this.stockDate = stockDate;
     }
 
-    public Integer getaPositive() {
+    public float getaPositive() {
         return aPositive;
     }
 
-    public void setaPositive(Integer aPositive) {
+    public void setaPositive(float aPositive) {
         this.aPositive = aPositive;
     }
 
-    public Integer getaNegative() {
+    public float getaNegative() {
         return aNegative;
     }
 
-    public void setaNegative(Integer aNegative) {
+    public void setaNegative(float aNegative) {
         this.aNegative = aNegative;
     }
 
-    public Integer getbPositive() {
+    public float getbPositive() {
         return bPositive;
     }
 
-    public void setbPositive(Integer bPositive) {
+    public void setbPositive(float bPositive) {
         this.bPositive = bPositive;
     }
 
-    public Integer getbNegative() {
+    public float getbNegative() {
         return bNegative;
     }
 
-    public void setbNegative(Integer bNegative) {
+    public void setbNegative(float bNegative) {
         this.bNegative = bNegative;
     }
 
-    public Integer getAbPositive() {
+    public float getAbPositive() {
         return abPositive;
     }
 
-    public void setAbPositive(Integer abPositive) {
+    public void setAbPositive(float abPositive) {
         this.abPositive = abPositive;
     }
 
-    public Integer getAbNegative() {
+    public float getAbNegative() {
         return abNegative;
     }
 
-    public void setAbNegative(Integer abNegative) {
+    public void setAbNegative(float abNegative) {
         this.abNegative = abNegative;
     }
 
-    public Integer getoPositive() {
+    public float getoPositive() {
         return oPositive;
     }
 
-    public void setoPositive(Integer oPositive) {
+    public void setoPositive(float oPositive) {
         this.oPositive = oPositive;
     }
 
-    public Integer getoNegative() {
+    public float getoNegative() {
         return oNegative;
     }
 
-    public void setoNegative(Integer oNegative) {
+    public void setoNegative(float oNegative) {
         this.oNegative = oNegative;
     }
-
-    @Column(name = "a_positive")
-    private Integer aPositive;
-
-    @Column(name = "a_negative")
-    private Integer aNegative;
-
-    @Column(name = "b_positive")
-    private Integer bPositive;
-
-    @Column(name = "b_negative")
-    private Integer bNegative;
-
-    @Column(name = "ab_positive")
-    private Integer abPositive;
-
-    @Column(name = "ab_negative")
-    private Integer abNegative;
-
-    @Column(name = "o_positive")
-    private Integer oPositive;
-
-    @Column(name = "o_negative")
-    private Integer oNegative;
-
-
 }

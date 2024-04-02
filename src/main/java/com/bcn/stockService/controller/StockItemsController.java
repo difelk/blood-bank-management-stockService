@@ -1,5 +1,6 @@
 package com.bcn.stockService.controller;
 
+import com.bcn.stockService.data.StockItem;
 import com.bcn.stockService.data.StockItems;
 import com.bcn.stockService.service.StockItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,8 @@ public class StockItemsController {
     }
 
     @PostMapping(path = "/stock-items")
-    public StockItems createStockItems(@RequestBody StockItems stockItems){
-        return stockItemsService.createStockItems(stockItems);
+    public StockItems createStockItems(@RequestBody StockItem stockItem){
+        System.out.println("called post stock item controller");
+        return stockItemsService.createStockItems(stockItem);
     }
 }

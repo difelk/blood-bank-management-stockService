@@ -9,18 +9,19 @@ CREATE TABLE stock (
     category VARCHAR(255) NOT NULL
 );
 
+
 CREATE TABLE stock_item (
     id INT AUTO_INCREMENT PRIMARY KEY,
     date DATE NOT NULL,
     category VARCHAR(255) NOT NULL,
-    Aplus INT NOT NULL,
-    Aminus INT NOT NULL,
-    Bplus INT NOT NULL,
-    Bminus INT NOT NULL,
-    ABplus INT NOT NULL,
-    ABminus INT NOT NULL,
-    Oplus INT NOT NULL,
-    Ominus INT NOT NULL
+    Aplus FLOAT NOT NULL DEFAULT 0,
+    Aminus FLOAT NOT NULL DEFAULT 0,
+    Bplus FLOAT NOT NULL DEFAULT 0,
+    Bminus FLOAT NOT NULL DEFAULT 0,
+    ABplus FLOAT NOT NULL DEFAULT 0,
+    ABminus FLOAT NOT NULL DEFAULT 0,
+    Oplus FLOAT NOT NULL DEFAULT 0,
+    Ominus FLOAT NOT NULL DEFAULT 0
 );
 
 INSERT INTO stock (date, quantity, category)

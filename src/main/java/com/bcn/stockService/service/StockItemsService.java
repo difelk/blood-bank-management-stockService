@@ -40,21 +40,108 @@ public class StockItemsService {
     }
 
     public StockItems createStockItems(StockItem stockItem) {
-        System.out.println("stockItem in service - " + stockItem.getDonorNic());
 
-// In this scenario, we have a new stock item, which means this stock item's date does not exist in the stock item table.
-// Therefore, we need to create a new stock item.
-// Before that, since we have data in the stockItem object but the database has data organized in the "stockItems" object,
-// you need to first create a stock items object here and use a switch case to check the stock item blood type (above stockItem parameter donor blood type).
-// Then assign the correct setter method with the blood type quantity and set other blood types as 0.
-// Then you can create the save query by passing the whole newly created stockItems object.
-//once the stock item successful then send the stockItem qty to the stock tb.
-        // for testing I commented out the save method.
-        //and return null because method is expecting return value
-        //also created meaningful respond method for all the requests
+        try {
+//            validate the DATE. cannot have the creating date in the db
+            StockItems stockItems = new StockItems();
+            stockItems.setStockDate(stockItem.getDonationDate());
+            stockItems.setCategory("Regular");
+
+            System.out.println("BLOOD TYPE: "+ stockItem.getBloodType());
+            switch (stockItem.getBloodType().trim()) {
+                case "A+":
+                    stockItems.setaPositive(stockItem.getQuantity());
+                    break;
+                case "A-":
+                    stockItems.setaNegative(stockItem.getQuantity());
+                    break;
+                case "B+":
+                    stockItems.setbPositive(stockItem.getQuantity());
+                    break;
+                case "B-":
+                    stockItems.setbNegative(stockItem.getQuantity());
+                    break;
+                case "AB+":
+                    stockItems.setAbPositive(stockItem.getQuantity());
+                    break;
+                case "AB-":
+                    stockItems.setAbNegative(stockItem.getQuantity());
+                    break;
+                case "O+":
+                    stockItems.setoPositive(stockItem.getQuantity());
+                    break;
+                case "O-":
+                    stockItems.setoNegative(stockItem.getQuantity());
+                    break;
+                default:
+                    System.out.println("Invalid blood type: " + stockItem.getBloodType());
+                    break;
+            }
 
 
-        return null;
-//        return stockItemRepository.save(stockItems);
+            System.out.println("stockItem in service - " + stockItem.getDonorNic());
+            return stockItemRepository.save(stockItems);
+        }
+        catch(Exception e){
+            System.out.println("Error in creating stock item: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public StockItems updateStockItems(StockItem stockItem) {
+
+        try {
+//            validate DATE. cannot repeat the same date.
+//            there should be a stock for the specific date
+            StockItems stockItems = stockItemRepository.getStockItemsByDate(stockItem.getDonationDate()).get(0);
+            stockItems.setStockDate(stockItem.getDonationDate());
+            stockItems.setCategory("Regular");
+
+            stockItems.setaPositive(stockItems.getaPositive());
+            stockItems.setaNegative(stockItems.getaNegative());
+            stockItems.setbPositive(stockItems.getbPositive());
+            stockItems.setbNegative(stockItems.getbNegative());
+            stockItems.setAbPositive(stockItems.getAbPositive());
+            stockItems.setAbNegative(stockItems.getAbNegative());
+            stockItems.setoPositive(stockItems.getoPositive());
+            stockItems.setoNegative(stockItems.getoNegative());
+
+            switch (stockItem.getBloodType().trim()) {
+                case "A+":
+                    stockItems.setaPositive(stockItem.getQuantity());
+                    break;
+                case "A-":
+                    stockItems.setaNegative(stockItem.getQuantity());
+                    break;
+                case "B+":
+                    stockItems.setbPositive(stockItem.getQuantity());
+                    break;
+                case "B-":
+                    stockItems.setbNegative(stockItem.getQuantity());
+                    break;
+                case "AB+":
+                    stockItems.setAbPositive(stockItem.getQuantity());
+                    break;
+                case "AB-":
+                    stockItems.setAbNegative(stockItem.getQuantity());
+                    break;
+                case "O+":
+                    stockItems.setoPositive(stockItem.getQuantity());
+                    break;
+                case "O-":
+                    stockItems.setoNegative(stockItem.getQuantity());
+                    break;
+                default:
+                    System.out.println("Invalid blood type: " + stockItem.getBloodType());
+                    break;
+            }
+
+            System.out.println("stockItem in service - " + stockItem.getDonorNic());
+            return stockItemRepository.save(stockItems);
+        }
+        catch(Exception e){
+            System.out.println("Error in creating stock item: " + e.getMessage());
+            return null;
+        }
     }
 }

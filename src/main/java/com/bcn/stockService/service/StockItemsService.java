@@ -50,29 +50,30 @@ public class StockItemsService {
                 stockItems.setCategory("Regular");
 
                 System.out.println("BLOOD TYPE: "+ stockItem.getBloodType());
+                System.out.println("stockItem.getBloodType().trim() : "+ stockItem.getBloodType().trim());
                 switch (stockItem.getBloodType().trim()) {
-                    case "A+":
+                    case "A +":
                         stockItems.setaPositive(stockItem.getQuantity());
                         break;
-                    case "A-":
+                    case "A -":
                         stockItems.setaNegative(stockItem.getQuantity());
                         break;
-                    case "B+":
+                    case "B +":
                         stockItems.setbPositive(stockItem.getQuantity());
                         break;
-                    case "B-":
+                    case "B -":
                         stockItems.setbNegative(stockItem.getQuantity());
                         break;
-                    case "AB+":
+                    case "AB +":
                         stockItems.setAbPositive(stockItem.getQuantity());
                         break;
-                    case "AB-":
+                    case "AB -":
                         stockItems.setAbNegative(stockItem.getQuantity());
                         break;
-                    case "O+":
+                    case "O +":
                         stockItems.setoPositive(stockItem.getQuantity());
                         break;
-                    case "O-":
+                    case "O -":
                         stockItems.setoNegative(stockItem.getQuantity());
                         break;
                     default:
@@ -119,29 +120,32 @@ public class StockItemsService {
                 stockItems.setoPositive(stockItems.getoPositive());
                 stockItems.setoNegative(stockItems.getoNegative());
 
+                System.out.println("BLOOD TYPE: "+ stockItem.getBloodType());
+                System.out.println("stockItem.getBloodType().trim() : "+ stockItem.getBloodType().trim());
+
                 switch (stockItem.getBloodType().trim()) {
-                    case "A+":
+                    case "A +":
                         stockItems.setaPositive(stockItem.getQuantity());
                         break;
-                    case "A-":
+                    case "A -":
                         stockItems.setaNegative(stockItem.getQuantity());
                         break;
-                    case "B+":
+                    case "B +":
                         stockItems.setbPositive(stockItem.getQuantity());
                         break;
-                    case "B-":
+                    case "B -":
                         stockItems.setbNegative(stockItem.getQuantity());
                         break;
-                    case "AB+":
+                    case "AB +":
                         stockItems.setAbPositive(stockItem.getQuantity());
                         break;
-                    case "AB-":
+                    case "AB -":
                         stockItems.setAbNegative(stockItem.getQuantity());
                         break;
-                    case "O+":
+                    case "O +":
                         stockItems.setoPositive(stockItem.getQuantity());
                         break;
-                    case "O-":
+                    case "O -":
                         stockItems.setoNegative(stockItem.getQuantity());
                         break;
                     default:

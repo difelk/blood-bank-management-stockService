@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class StockItemsController {
 
     @Autowired

@@ -2,6 +2,7 @@ package com.bcn.stockService.controller;
 
 import com.bcn.stockService.data.StockItem;
 import com.bcn.stockService.data.StockItems;
+import com.bcn.stockService.data.StockResponse;
 import com.bcn.stockService.service.StockItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,13 +27,13 @@ public class StockItemsController {
     }
 
     @PostMapping(path = "/stock-items")
-    public StockItems createStockItems(@RequestBody StockItem stockItem){
+    public StockResponse createStockItems(@RequestBody StockItem stockItem){
         System.out.println("called post stock item controller");
         return stockItemsService.createStockItems(stockItem);
     }
 
     @PutMapping(path = "/stock-items")
-    public StockItems updateStockItems(@RequestBody StockItem stockItem){
+    public StockResponse updateStockItems(@RequestBody StockItem stockItem){
         System.out.println("received an put request to the stock");
         return stockItemsService.updateStockItems(stockItem);
     }

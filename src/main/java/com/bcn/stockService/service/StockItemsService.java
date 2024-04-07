@@ -106,6 +106,9 @@ public class StockItemsService {
         try {
 //            System.out.println("stockItem.getDonationDate()).equals(1): " + stockItem.getDonationDate().equals(1));
 //            System.out.println("SIZE: " + getStockItemsByDate(stockItem.getDonationDate()).size());
+            System.out.println("new stock item received");
+            System.out.println("stockItem blood type - " +  stockItem.getBloodType());
+            System.out.println("stockItem blood qty - " +  stockItem.getQuantity());
             if(stockItemRepository.getStockItemsByDate(stockItem.getDonationDate()).size() == 1){
                 StockItems stockItems = stockItemRepository.getStockItemsByDate(stockItem.getDonationDate()).get(0);
                 stockItems.setStockDate(stockItem.getDonationDate());
